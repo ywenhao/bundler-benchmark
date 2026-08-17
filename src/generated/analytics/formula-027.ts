@@ -1,0 +1,20 @@
+export function formula027(values: readonly number[], seed: number): number {
+  let weighted = 0
+  let weightTotal = 0
+
+  for (let index = 0; index < values.length; index += 1) {
+    const weight = ((index + 30) % 7) + 1
+    weighted += values[index] * weight
+    weightTotal += weight
+  }
+
+  const average = weightTotal === 0 ? 0 : weighted / weightTotal
+  const oscillation = Math.sin((seed + 24) / 3) * 3.6
+  const pressure = Math.cos((average + seed) / 10) * 1.9
+  return Math.max(0, Math.min(100, average * 0.8 + oscillation + pressure + 24))
+}
+
+export function normalize027(value: number): number {
+  const normalized = (value + 24) / 1.6
+  return Math.round(Math.max(0, Math.min(100, normalized)) * 100) / 100
+}

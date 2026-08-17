@@ -1,0 +1,49 @@
+{
+  "name": "bundler-benchmark",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.21.0",
+  "scripts": {
+    "generate": "node scripts/generate-workload.mjs",
+    "typecheck": "tsc --noEmit",
+    "build:vite": "vite build --config vite.config.ts",
+    "build:webpack": "webpack --config webpack.config.mjs --mode production",
+    "build:rspack": "rspack build --config rspack.config.mjs --mode production",
+    "build:all": "pnpm build:vite && pnpm build:webpack && pnpm build:rspack",
+    "dev:vite": "vite --config vite.config.ts --host 127.0.0.1 --port 4173 --strictPort",
+    "dev:webpack": "webpack serve --config webpack.config.mjs --mode development --env port=4174",
+    "dev:rspack": "rspack serve --config rspack.config.mjs --mode development --env port=4175",
+    "benchmark": "node scripts/benchmark.mjs",
+    "benchmark:quick": "node scripts/benchmark.mjs --runs 3 --warmups 1"
+  },
+  "dependencies": {
+    "date-fns": "latest",
+    "lodash-es": "latest",
+    "lucide-react": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@rspack/cli": "latest",
+    "@rspack/core": "latest",
+    "@rspack/dev-server": "latest",
+    "@swc/core": "latest",
+    "@types/lodash-es": "latest",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "@vitejs/plugin-react-swc": "latest",
+    "css-loader": "latest",
+    "html-webpack-plugin": "latest",
+    "mini-css-extract-plugin": "latest",
+    "style-loader": "latest",
+    "swc-loader": "latest",
+    "typescript": "latest",
+    "vite": "latest",
+    "webpack": "latest",
+    "webpack-cli": "latest",
+    "webpack-dev-server": "latest"
+  }
+}

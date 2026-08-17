@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.cache/
+benchmark-results/*.json
+benchmark-results/*.md
+!benchmark-results/.gitkeep
+
